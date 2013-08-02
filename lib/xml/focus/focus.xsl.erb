@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+	<xsl:template match="*">
+		<xsl:variable name="has-begin" select='boolean(.//*[<%= first_elem_path %>])'/>
+
+		<xsl:variable name="has-end" select='boolean(.//*[<%= last_elem_path %>])'/>
+
+		<xsl:variable name="is-begin" select='<%= first_elem_path %>'/>
+
+		<xsl:variable name="is-end" select='<%= last_elem_path %>'/>
+
+		<xsl:variable name="between" select='following::*[<%= last_elem_path %>] and preceding::*[<%= first_elem_path %>]'/>
+
+		<xsl:if test="$has-begin or $has-end or $is-begin or $is-end or $between">
+			<xsl:copy>
+				<xsl:apply-templates select="*|@*|text()"/>
+			</xsl:copy>
+		</xsl:if>
+	</xsl:template>
+
+	<xsl:template match="@*|text()">
+		<xsl:copy/>
+	</xsl:template>
+</xsl:stylesheet>
