@@ -1,5 +1,5 @@
-xml-focus: extract XML subtrees
-===============================
+xml-focus: extract XML subtrees and preserve structure
+======================================================
 
 Extract subtrees from XML trees, making sure that the overall structure is
 preserved.
