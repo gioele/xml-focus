@@ -151,4 +151,36 @@ describe XML::Focus do
 			expect(@portion).to have_no_element_with_id('e-3.4')
 		end
 	end
+
+	describe "quote support" do
+		it "works with double quotes in condition" do
+			xml = Nokogiri::XML(open('spec/fixtures/shallow.xml'))
+			first = %q{@xml:id="e-2.2"}
+			last = %q{@xml:id="e-2.5"}
+
+			expect { XML::Focus(xml, first, last) }.not_to raise_exception
+		end
+
+		it "works with single quotes in condition" do
+			pending("Not yet implemented")
+
+			xml = Nokogiri::XML(open('spec/fixtures/shallow.xml'))
+			first = %q{@xml:id='e-2.2'}
+			last = %q{@xml:id='e-2.5'}
+
+			expect { XML::Focus(xml, first, last) }.not_to raise_exception
+		end
+
+		it "works with mixed quotes in condition" do
+			pending("Not yet implemented")
+
+			xml = Nokogiri::XML(open('spec/fixtures/shallow.xml'))
+			first = %q{@xml:id="e-2.2" and name()='level2'}
+			last = %q{@xml:id="e-2.5"}
+
+			expect { XML::Focus(xml, first, last) }.not_to raise_exception
+		end
+
+		it "works with escaped quotes in condition"
+	end
 end
