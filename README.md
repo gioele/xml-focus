@@ -7,7 +7,8 @@ preserved.
 Examples
 --------
 
-Extract a portion of TEI document:
+Extract a portion of TEI document, from the element `pb@n='1'` to the
+element `pb@n='2'`:
 
 	doc = Nokogiri::XML(%q{
 	<TEI>
