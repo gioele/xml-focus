@@ -100,7 +100,7 @@ Code
 : <https://github.com/gioele/xml-focus>
 
 Report issues
-: <https://github.com/gioele/xml-focus>
+: <https://github.com/gioele/xml-focus/issues>
 
 Documentation
 : <http://rubydoc.info/gems/xml-focus>
