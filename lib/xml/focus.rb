@@ -1,6 +1,7 @@
 require 'xml/focus/version'
 
 require 'erb'
+require 'nokogiri'
 
 module XML
 	Focus::XSLT_TEMPLATE_PATH = File.join(File.dirname(__FILE__), '/focus/focus.xsl.erb')
